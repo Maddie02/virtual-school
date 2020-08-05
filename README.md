@@ -9,4 +9,4 @@ Used technologies:
 
 ### Creator
 
-[Madlen Sarkisian](https://github.com/Maddie02) \
+[Madlen Sarkisian](https://github.com/Maddie02)

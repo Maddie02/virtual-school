@@ -8,7 +8,7 @@ const RegisterPage = (props) => {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [studentClass, setStudentClass] = useState(8);
+    const [studentClass, setStudentClass] = useState(null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 

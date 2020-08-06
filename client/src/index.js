@@ -5,8 +5,6 @@ import Navigation from './Navigation';
 import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Navigation />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Navigation />,
+    document.getElementById('root')
 );

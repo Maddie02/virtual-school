@@ -6,7 +6,7 @@ import getNavigation from '../../utils/getNavigation';
 
 const Header = () => {
 
-    const [activeItem, setActiveItem] = useState('Home');
+    const [activeItem, setActiveItem] = useState('');
 
     const handleClick = (e, { name }) => {
         setActiveItem(name);

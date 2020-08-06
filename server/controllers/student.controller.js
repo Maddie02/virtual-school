@@ -5,6 +5,8 @@ const bcrypt = require('bcrypt');
 exports.registerController = (req, res) => {
     const { firstName, lastName, email, password, studentClass } = req.body;
 
+    console.log(req.body);
+
     Student.findOne({ email })
            .then(user => {
 
@@ -31,9 +33,10 @@ exports.registerController = (req, res) => {
                                 if (err) {
                                     throw err;
                                 }
-                                res.json({
-                                    token
-                                });
+                                res.header("Authorization", token).send(user);
+                                // res.json({
+                                //     token
+                                // });
                             })
                       })
            })

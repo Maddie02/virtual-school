@@ -9,7 +9,9 @@ require('dotenv').config();
 const app = express();
 const port = 5000;
 
-app.use(cors());
+app.use(cors({
+    exposedHeaders: "Authorization"
+}));
 app.use(express.json());
 
 // Database connection

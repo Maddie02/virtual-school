@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import getNavigation from '../../utils/getNavigation';
+import StudentContext from '../../Context';
+
 
 const Header = () => {
 
     const [activeItem, setActiveItem] = useState('');
+    const context = useContext(StudentContext);
 
     const handleClick = (e, { name }) => {
         setActiveItem(name);
     }
 
-    const links = getNavigation(false, undefined);
+    const links = getNavigation(context.loggedIn, context.student);
 
     return (
         <div className={styles.nav}>

@@ -1,16 +1,18 @@
-import React, { useState} from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import PageLayout from '../../components/PageLayout/PageLayout';
 import { Form, Button } from 'semantic-ui-react';
 import styles from './LoginPage.module.css';
 import Title from '../../components/Title/Title';
 import authenticate from '../../utils/authenticate';
+import StudentContext from '../../Context';
 
 const LoginPage = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const context = useContext(StudentContext);
     const history = useHistory();
 
     const handleSubmit = async (e) => {
@@ -21,7 +23,7 @@ const LoginPage = () => {
             password
         }, (user) => {
             /* Use context */
-            console.log(user);
+            context.logIn(user);
             history.push('/');
         }, (e) => {
             setError(e || 'Invalid credentials');

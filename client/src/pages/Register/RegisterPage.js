@@ -3,6 +3,7 @@ import PageLayout from '../../components/PageLayout/PageLayout';
 import { Form, Button, Select } from 'semantic-ui-react';
 import styles from './RegisterPage.module.css';
 import authenticate from '../../utils/authenticate';
+import Title from '../../components/Title/Title';
 
 const RegisterPage = (props) => {
 
@@ -63,6 +64,7 @@ const RegisterPage = (props) => {
     return (
         <PageLayout>
             <Form className={styles.form} onSubmit={handleSubmit} >
+                <Title name="Register" />
                 <Form.Group widths='equal'>
                     <Form.Input fluid label='First name' placeholder='Enter first name' onChange={onFirstNameChange} required />
                     <Form.Input fluid label='Last name' placeholder='Enter last name' onChange={onLastNameChange} required />

@@ -66,9 +66,7 @@ exports.validateController = (req, res) => {
                             if (err) {
                                 throw err;
                             }
-                            res.json({
-                                token
-                            });
+                            res.header("Authorization", token).send(user);
                         })
                      })
                

@@ -7,6 +7,7 @@ import {
 
 import HomePage from './pages/HomePage/HomePage';
 import RegisterPage from './pages/Register/RegisterPage';
+import LoginPage from './pages/Login/LoginPage';
 
 const Navigation = () => {
   return (
@@ -14,6 +15,7 @@ const Navigation = () => {
       <Switch>
         <Route path='/' exact component={HomePage} />
         <Route path='/register' exact component={RegisterPage} />
+        <Route path='/login' exact component={LoginPage} />
       </Switch>
     </Router>
   );

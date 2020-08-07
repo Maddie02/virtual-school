@@ -21,7 +21,7 @@ const getNavigation = (loggedIn, user) => {
         right: [
             {
                 title: 'Profile',
-                path: `/profile/${user && user.id}`,
+                path: `/profile/${user && user._id}`,
                 position: 'right'
             },
             {

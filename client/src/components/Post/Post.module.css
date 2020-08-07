@@ -1,0 +1,16 @@
+.post {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 100px;
+}
+
+.date {
+    color: rgba(0, 0, 0, 0.7);
+    position: relative;
+    top: -12px;
+}
+
+.desc {
+    font-size: 1.3em;
+}

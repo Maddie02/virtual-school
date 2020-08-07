@@ -2,7 +2,7 @@ import React from 'react';
 
 const StudentContext = React.createContext({
     loggedIn: false,
-    student: null,
+    user: null,
     logIn: () => {},
     logOut: () => {}
 });

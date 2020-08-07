@@ -5,8 +5,6 @@ const bcrypt = require('bcrypt');
 exports.registerController = (req, res) => {
     const { firstName, lastName, email, password, studentClass } = req.body;
 
-    console.log(req.body);
-
     Student.findOne({ email })
            .then(user => {
 
@@ -28,7 +26,6 @@ exports.registerController = (req, res) => {
                                 id: user._id
                             }, 
                             process.env.JWT_SECRET,
-                            { expiresIn: 3600 },
                             (err, token) => {
                                 if (err) {
                                     throw err;
@@ -61,7 +58,6 @@ exports.validateController = (req, res) => {
                         jwt.sign(
                         { id: user._id }, 
                         process.env.JWT_SECRET,
-                        { expiresIn: 3600 },
                         (err, token) => {
                             if (err) {
                                 throw err;
@@ -79,4 +75,10 @@ exports.verifyLogin = (req, res) => {
                status: true,
                user
            }));
+}
+
+exports.getAll = (req, res) => {
+    Student.find({})
+           .select('-password')
+           .then(users => res.send(users));
 }

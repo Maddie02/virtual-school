@@ -29,7 +29,7 @@ exports.getPosts = async (req, res) => {
 }
 
 exports.getCurrentStudentPosts = async (req, res) => {
-    const currentStudent = await Student.findById(req.user.id);
+    const currentStudent = await Student.findById(req.params.id);
     const posts = await Post.find({ author: currentStudent._id });
     res.send(posts);
 }

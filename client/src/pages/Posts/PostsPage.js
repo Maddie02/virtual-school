@@ -5,7 +5,7 @@ import PageLayout from '../../components/PageLayout/PageLayout';
 const PostsPage = () => {
     return (
         <PageLayout>
-            <Posts />
+            <Posts to='all' />
         </PageLayout>
     )
 }

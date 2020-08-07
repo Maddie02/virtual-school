@@ -8,6 +8,6 @@ const {
 
 router.post('/', auth, postController);
 router.get('/all', getPosts);
-router.get('/authuser', auth, getCurrentStudentPosts);
+router.get('/user/:id', getCurrentStudentPosts);
 
 module.exports = router;

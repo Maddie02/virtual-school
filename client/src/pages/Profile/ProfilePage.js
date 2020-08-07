@@ -1,15 +1,19 @@
 import React, { useContext } from 'react';
 import PageLayout from '../../components/PageLayout/PageLayout';
 import StudentContext from '../../Context';
+import Posts from '../../components/Posts/Posts';
 
 const ProfilePage = () => {
 
     const context = useContext(StudentContext);
-    console.log(context);
+
+    if (!context.user) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <PageLayout>
-            <h1>Hello</h1>
+            <Posts to={`user/${context.user._id}`} />
         </PageLayout>
     )
 }

@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Post from '../Post/Post';
+import StudentContext from '../../Context';
 
-const Posts = () => {
+const Posts = ({ to }) => {
 
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const context = useContext(StudentContext);
 
-    const getPosts = async () => {
-        setIsLoading(true);
-        const promise = await axios.get('http://localhost:5000/api/post/all');
-        setPosts(promise.data);
-    }
-
+    
     useEffect(() => {
+        const getPosts = async () => {
+            setIsLoading(true);
+            const promise = await axios.get(`http://localhost:5000/api/post/${to}`);
+            setPosts(promise.data);
+        }
         getPosts();
         setIsLoading(false);
-    }, [posts]);
+    }, [to]);
 
     const listPosts = () => {
         return posts.map(current => {

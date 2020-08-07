@@ -15,7 +15,7 @@ const authenticate = async (url, body, onSuccess, onFailure) => {
 
         if (response.email && authToken) {
             onSuccess({
-                id: response._id,
+                _id: response._id,
                 firstName: response.firstName,
                 lastName: response.lastName,
                 email: response.email,

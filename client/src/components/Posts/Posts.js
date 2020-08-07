@@ -18,7 +18,7 @@ const Posts = ({ to }) => {
         }
         getPosts();
         setIsLoading(false);
-    }, [to]);
+    }, [to, posts]);
 
     const listPosts = () => {
         return posts.map(current => {

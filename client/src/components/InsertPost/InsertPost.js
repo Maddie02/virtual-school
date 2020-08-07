@@ -21,6 +21,7 @@ const InsertPost = () => {
                 'Authorization': token,
             }
         })
+        .then(() => setDescription(''));
     }
 
     return (
@@ -28,7 +29,7 @@ const InsertPost = () => {
             <div className={styles.box}>
                 <Title name="Share a post" />
                 <Form className={styles.form} onSubmit={handleSubmit} >
-                    <Form.TextArea className={styles.area} placeholder='What is on your mind?' onChange={(e) => setDescription(e.target.value)} />
+                    <Form.TextArea className={styles.area} value={description} placeholder='What is on your mind?' onChange={(e) => setDescription(e.target.value)} />
                     <Button
                         color='twitter'
                         type="submit"

@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Post from '../Post/Post';
-import StudentContext from '../../Context';
 
 const Posts = ({ to }) => {
 
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const context = useContext(StudentContext);
-
     
     useEffect(() => {
         const getPosts = async () => {

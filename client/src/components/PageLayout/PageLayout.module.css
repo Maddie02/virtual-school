@@ -1,15 +1,11 @@
 .App {
-    /* margin-top: 10px; */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 .container {
-    /* background-image: url('https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
-    background-image: url('https://images.pexels.com/photos/583846/pexels-photo-583846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background: no-repeat fixed url('https://images.pexels.com/photos/583846/pexels-photo-583846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     background-size: cover;
-    /* margin: 10px auto; */
-    /* width: 90%; */
     flex: 1;
 }

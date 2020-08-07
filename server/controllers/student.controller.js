@@ -75,7 +75,7 @@ exports.verifyLogin = (req, res) => {
            .select('-password')
            .then(user => res.json({
                status: true,
-               user: req.user
+               user
            }));
 }
 

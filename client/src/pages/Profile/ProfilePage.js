@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PageLayout from '../../components/PageLayout/PageLayout';
 import StudentContext from '../../Context';
 import Posts from '../../components/Posts/Posts';
+import InsertPost from '../../components/InsertPost/InsertPost';
 
 const ProfilePage = () => {
 
@@ -13,6 +14,7 @@ const ProfilePage = () => {
 
     return (
         <PageLayout>
+            <InsertPost />
             <Posts to={`user/${context.user._id}`} />
         </PageLayout>
     )

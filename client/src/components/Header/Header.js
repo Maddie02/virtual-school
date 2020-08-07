@@ -21,7 +21,7 @@ const Header = () => {
         setActiveItem(name);
     }
 
-    const links = getNavigation(context.loggedIn, context.student);
+    const links = getNavigation(context.loggedIn, context.user);
 
     return (
         <div className={styles.nav}>

@@ -1,28 +1,22 @@
-import React, { useContext, useState, useEffect } from 'react';
-import StudentContext from '../../Context';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Post from '../Post/Post';
 
 const Posts = () => {
 
     const [posts, setPosts] = useState([]);
-    const [isLoading, setIsLoading] = useState(null);
-    const context = useContext(StudentContext);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const getPosts = async () => {
+        setIsLoading(true);
+        const promise = await axios.get('http://localhost:5000/api/post/all');
+        setPosts(promise.data);
+    }
 
     useEffect(() => {
-        setIsLoading(true);
-
-        axios.get('http://localhost:5000/api/post/all')
-             .then(response => {
-                 setPosts(response.data);
-                 setIsLoading(false);
-             })
-             .catch(err => {
-                 console.log(err);
-             })
-
+        getPosts();
         setIsLoading(false);
-    }, [posts])
+    }, [posts]);
 
     const listPosts = () => {
         return posts.map(current => {
@@ -30,13 +24,13 @@ const Posts = () => {
         })
     }
 
+    if (isLoading === true) {
+        return <h1>Loading...</h1>;
+    }
+
     return (
         <div>
-            {isLoading ? 
-                <div>Loading...</div> :
-
-                listPosts()
-            }
+            { listPosts() }
         </div>
     )
 }

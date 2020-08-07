@@ -5,8 +5,6 @@ const bcrypt = require('bcrypt');
 exports.registerController = (req, res) => {
     const { firstName, lastName, email, password, studentClass } = req.body;
 
-    console.log(req.body);
-
     Student.findOne({ email })
            .then(user => {
 
@@ -79,4 +77,10 @@ exports.verifyLogin = (req, res) => {
                status: true,
                user
            }));
+}
+
+exports.getAll = (req, res) => {
+    Student.find({})
+           .select('-password')
+           .then(users => res.send(users));
 }

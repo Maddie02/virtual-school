@@ -38,7 +38,6 @@ const RegisterPage = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(firstName, lastName, email, password, studentClass);
         await authenticate('http://localhost:5000/api/register', {
             firstName,
             lastName,

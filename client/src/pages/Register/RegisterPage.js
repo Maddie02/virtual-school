@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PageLayout from '../../components/PageLayout/PageLayout';
 import { Form, Button, Select } from 'semantic-ui-react';
 import styles from './RegisterPage.module.css';
 import authenticate from '../../utils/authenticate';
 import Title from '../../components/Title/Title';
+import StudentContext from '../../Context';
 
 const RegisterPage = (props) => {
 
@@ -12,6 +13,7 @@ const RegisterPage = (props) => {
     const [studentClass, setStudentClass] = useState(null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const context = useContext(StudentContext);
 
     const onFirstNameChange = (e) => {
         setFirstName(e.target.value);
@@ -44,8 +46,7 @@ const RegisterPage = (props) => {
             password,
             studentClass
         }, (user) => {
-            /* Use context */
-            console.log(user);
+            context.logIn(user);
             props.history.push('/');
         }, (e) => {
             console.log(e);

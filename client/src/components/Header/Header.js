@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Menu } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styles from './Header.module.css';
 import getNavigation from '../../utils/getNavigation';
+import StudentContext from '../../Context';
+
 
 const Header = () => {
 
     const [activeItem, setActiveItem] = useState('');
+    const context = useContext(StudentContext);
+    const history = useHistory();
 
     const handleClick = (e, { name }) => {
+        if (name === 'Log out') {
+            context.logOut();
+            history.push('/');
+            return;
+        }
         setActiveItem(name);
     }
 
-    const links = getNavigation(false, undefined);
+    const links = getNavigation(context.loggedIn, context.student);
 
     return (
         <div className={styles.nav}>
@@ -29,7 +38,7 @@ const Header = () => {
                         })
                     }
                     <Menu.Menu position='right'>
-                    {    
+                    {   
                         links.right.map(link => {
                             return <Menu.Item
                                     key={link.title}

@@ -26,7 +26,7 @@ const getNavigation = (loggedIn, user) => {
             },
             {
                 title: 'Log out',
-                path: '/logout',
+                path: '',
                 position: 'right'
             }
         ]

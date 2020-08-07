@@ -1,13 +1,15 @@
 const Post = require('../models/Post');
 const Student = require('../models/Student');
 
-exports.postController = (req, res) => {
+exports.postController = async (req, res) => {
     const { description } = req.body;
     const userId = req.user.id;
+    const user = await Student.findById(userId);
 
     const newPost = new Post({
         description,
-        author: userId
+        author: userId,
+        authorName: user.firstName + ' ' + user.lastName
     });
 
     newPost.save()
@@ -19,4 +21,9 @@ exports.postController = (req, res) => {
                console.log(e);
            })
 
+}
+
+exports.getPosts = async (req, res) => {
+    const posts = await Post.find().sort('-created_at');
+    res.send(posts);
 }

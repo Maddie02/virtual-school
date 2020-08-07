@@ -14,7 +14,11 @@ const postSchema = new Schema({
     author: {
         type: ObjectId,
         ref: "Student"
-    }
+    },
+
+    authorName: {
+        type: String
+    },
 }, { timestamps: { createdAt: 'created_at' } });
 
 module.exports = new Model("Post", postSchema);

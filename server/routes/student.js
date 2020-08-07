@@ -5,11 +5,13 @@ const auth = require('../middleware/auth');
 const {
     registerController,
     validateController,
-    verifyLogin
+    verifyLogin,
+    getAll
 } = require('../controllers/student.controller.js');
 
 router.post('/register', registerController);
 router.post('/login', validateController);
 router.get('/verify', auth, verifyLogin);
+router.get('/getAll', getAll);
 
 module.exports = router;

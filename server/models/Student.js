@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 
 const Schema = mongoose.Schema;
 const Model = mongoose.model;
+const { ObjectId } = Schema.Types;
 
 const studentSchema = new Schema({
 
@@ -30,7 +31,9 @@ const studentSchema = new Schema({
     studentClass: {
         type: Number,
         required: true
-    }
+    },
+
+    posts: [{ type: ObjectId, ref: "Post" }]
 })
 
 studentSchema.pre('save', async function (next) {

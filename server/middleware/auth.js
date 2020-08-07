@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 
 function auth (req, res, next) {
-    const token = req.header('Authorization') || '';
-    
+    const token = req.headers.authorization || '';
+
     if (!token) {
         res.status(401).json({ msg: 'Unauthorized' });
     }
@@ -12,7 +12,7 @@ function auth (req, res, next) {
         req.user = decoded;
         next();
     } catch (e) {
-        res.status(500).json({ msg: 'Token is not valid' });
+        console.log(e);
     }
 }
 

@@ -69,6 +69,14 @@ exports.validateController = (req, res) => {
                             res.header("Authorization", token).send(user);
                         })
                      })
-               
            })
+}
+
+exports.verifyLogin = (req, res) => {
+    Student.findById(req.user.id)
+           .select('-password')
+           .then(user => res.json({
+               status: true,
+               user
+           }));
 }

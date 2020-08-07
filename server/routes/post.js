@@ -3,10 +3,11 @@ const Post = require('../models/Post');
 const auth = require('../middleware/auth');
 
 const {
-    postController, getPosts
+    postController, getPosts, getCurrentStudentPosts
 } = require('../controllers/post.controller.js');
 
 router.post('/', auth, postController);
 router.get('/all', getPosts);
+router.get('/authuser', auth, getCurrentStudentPosts);
 
 module.exports = router;

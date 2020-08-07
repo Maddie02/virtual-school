@@ -27,3 +27,9 @@ exports.getPosts = async (req, res) => {
     const posts = await Post.find().sort('-created_at');
     res.send(posts);
 }
+
+exports.getCurrentStudentPosts = async (req, res) => {
+    const currentStudent = await Student.findById(req.user.id);
+    const posts = await Post.find({ author: currentStudent._id });
+    res.send(posts);
+}

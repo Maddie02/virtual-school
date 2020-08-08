@@ -6,6 +6,7 @@ import styles from './LoginPage.module.css';
 import Title from '../../components/Title/Title';
 import authenticate from '../../utils/authenticate';
 import StudentContext from '../../Context';
+import { Helmet } from 'react-helmet';
 
 const LoginPage = () => {
 
@@ -34,6 +35,10 @@ const LoginPage = () => {
 
     return (
         <PageLayout>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Login</title>
+            </Helmet>
             <Form className={styles.form} onSubmit={handleSubmit}>
                 <Title name="Login" />
                 <Form.Group widths='equal'>

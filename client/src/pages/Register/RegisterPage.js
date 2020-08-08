@@ -5,6 +5,7 @@ import styles from './RegisterPage.module.css';
 import authenticate from '../../utils/authenticate';
 import Title from '../../components/Title/Title';
 import StudentContext from '../../Context';
+import { Helmet } from 'react-helmet';
 
 const RegisterPage = (props) => {
 
@@ -63,6 +64,10 @@ const RegisterPage = (props) => {
 
     return (
         <PageLayout>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Register</title>
+            </Helmet>
             <Form className={styles.form} onSubmit={handleSubmit} >
                 <Title name="Register" />
                 <Form.Group widths='equal'>

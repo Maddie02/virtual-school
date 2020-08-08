@@ -1,0 +1,25 @@
+.card {
+    background-color: white;
+    padding: 40px;
+    width: 25%;
+    margin: 30px 25px;
+    box-shadow: 5px 5px rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+}
+
+.card:hover {
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+    transition-delay: 0.3s;
+}
+
+.meta {
+    position: relative;
+    top: -10px;
+    color: rgb(150, 148, 148);
+}
+
+.description {
+    font-size: 1.2em;
+}

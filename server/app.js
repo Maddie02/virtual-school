@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const studentRouter = require('./routes/student');
 const postRouter = require('./routes/post');
+const teacherRouter = require('./routes/teacher');
 
 require('dotenv').config();
 
@@ -30,5 +31,6 @@ mongoose.connection.once('open', () => {
 
 app.use('/api/', studentRouter);
 app.use('/api/post', postRouter);
+app.use('/api/teacher', teacherRouter);
 
 app.listen(port, () => console.log(`App running on port ${port}`));

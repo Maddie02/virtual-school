@@ -18,3 +18,17 @@ exports.addTeacherController = (req, res) => {
                   console.log(e);
               })
 }
+
+exports.getTeacherByClass = (req, res) => {
+    const teachClass = parseInt(req.params.tclass, 10);
+    
+    Teacher.find({
+        teachClass: { $elemMatch: { $eq: teachClass } }
+    })
+    .then(teachers => {
+        res.send(teachers);
+    })
+    .catch(e => {
+        console.log(e);
+    })
+}

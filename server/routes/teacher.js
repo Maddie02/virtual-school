@@ -1,7 +1,9 @@
 const router = require('express').Router();
-const { addTeacherController } = require('../controllers/teacher.controller');
+const {
+    addTeacherController, getTeacherByClass 
+} = require('../controllers/teacher.controller');
 
 router.post('/add', addTeacherController);
-
+router.get('/:tclass', getTeacherByClass);
 
 module.exports = router;

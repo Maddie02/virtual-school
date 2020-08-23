@@ -4,6 +4,7 @@ import StudentContext from '../../Context';
 import Posts from '../../components/Posts/Posts';
 import InsertPost from '../../components/InsertPost/InsertPost';
 import { Helmet } from 'react-helmet';
+import ProfileBadge from '../../components/Profile/ProfileBadge';
 
 const ProfilePage = () => {
 
@@ -19,6 +20,7 @@ const ProfilePage = () => {
                 <meta charSet="utf-8" />
                 <title>Profile</title>
             </Helmet>
+            <ProfileBadge {...context.user} />
             <InsertPost />
             <Posts to={`user/${context.user._id}`} />
         </PageLayout>

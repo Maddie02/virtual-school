@@ -9,10 +9,10 @@ const getNavigation = (loggedIn, user) => {
                 title: 'Teachers',
                 path: '/teachers'
             },
-            {
-                title: 'Program',
-                path: '/program'
-            },
+            // {
+            //     title: 'Program',
+            //     path: '/program'
+            // },
             {
                 title: 'Posts',
                 path: '/posts'

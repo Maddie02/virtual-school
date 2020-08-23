@@ -8,14 +8,14 @@ const Posts = ({ to }) => {
     const [isLoading, setIsLoading] = useState(true);
     
     useEffect(() => {
-        const getPosts = async () => {
-            setIsLoading(true);
-            const promise = await axios.get(`http://localhost:5000/api/post/${to}`);
-            setPosts(promise.data);
+        if (isLoading === true) {
+            axios.get(`http://localhost:5000/api/post/${to}`)
+                 .then((response) => {
+                    setIsLoading(false);
+                    setPosts(response.data);
+                 });
         }
-        getPosts();
-        setIsLoading(false);
-    }, [to, posts]);
+    }, [isLoading, to, posts]);
 
     const listPosts = () => {
         return posts.map(current => {

@@ -6,6 +6,27 @@ Used technologies:
 + Express.js
 + React
 + MongoDB
++ Semantic UI
+
+## Installation
+```bash
+cd client
+npm install
+```
+```bash
+cd server
+npm install
+```
+
+## How to run
+```bash
+cd client
+npm start
+```
+```bash
+cd server
+node app.js
+```
 
 ### Creator
 
